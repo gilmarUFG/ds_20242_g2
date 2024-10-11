@@ -44,7 +44,16 @@ VICTOR GABRIEL PACHECO GONTIJO - Designer, Desenvolvedor Back End
 
 #### Prévia do backlog do produto
 ----
-A acrescentar
+HU001 - Reportar árvore com risco  
+HU002 - Consultar relatórios de reportes anteriores  
+HU003 - Verificar os processos abertos
+HU004 - Verificar índice de ocorrências por localidade/época  
+HU005 - Login com a matrícula de servidor  
+HU006 - Cadastro de fatores de risco para priorização de processos  
+HU007 - Acessar o andamento do caso reportado  
+HU008 - Alterar status de andamento do processo  
+HU009 - Atualizar o relatório com imagens da ação realizada  
+HU0010 - Login de cidadão
 
 #### MVP e entregáveis
 ---- 
