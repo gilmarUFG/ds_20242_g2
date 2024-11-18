@@ -1,3 +1,5 @@
+#  EcoAlerta<br>
+
 # Descrição do Projeto
 ### ds_20242_g2
 O projeto tem como objetivo a produção de um Sooftware de identificação e o reporte, pela população, de árvores doentes com risco de queda ou danos à cidade. Esses reportes serão automaticamente categorizados pelo sistema de acordo com o grau de risco, auxiliando a AMMA a priorizar os casos reportados e, assim, realizar ações preventivas e específicas, poupando recursos humanos e financeiros.<br><br>
@@ -6,6 +8,7 @@ Assim que um relatório é enviado, o sistema automaticamente calcula um "índic
 #### Resumo do Escopo.<br><br>
 O projeto é uma solução de software colaborativa, que possibilita à população reportar árvores doentes ou em risco de causar acidentes na cidade. Com base nesses relatórios, o sistema calcula automaticamente um "índice de risco", auxiliando a AMMA na priorização das intervenções de acordo com a gravidade de cada caso, otimizando o uso de recursos e promovendo ações preventivas mais eficazes.<br>
 <br><br>
+
 # Atores do projeto<br>
 ### Usuário<br>
 Sujeito que irá reportar problemas com as árvores:<br><br>
