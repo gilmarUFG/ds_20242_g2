@@ -59,4 +59,15 @@ HU0010 - Login de cidadão
 
 #### MVP e entregáveis
 ---- 
-A decidir
+MVP:
+- Cadastro do Usuário
+- Cadastro do Servidor
+- Abertura do Reporte (poda e estirpação)
+- Histórico de Reportes para usuário
+- Histórico de  Reportes para Servidor
+- Localidade dos Reportes para servidor
+
+Entregáveis:
+- Documentação inicial: descrição do problema, objetivos e requisitos.
+- Protótipo de interface: telas principais
+  
