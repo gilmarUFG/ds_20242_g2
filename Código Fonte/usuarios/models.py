@@ -13,7 +13,7 @@ class Usuario(models.Model):
 
 
 class Tecnico(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True)
+    usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
     cargo = models.CharField(max_length=100)
     data_admissao = models.DateField()
     matricula = models.TextField(unique=True)

@@ -2,17 +2,24 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
-from usuarios.models import Usuario
+from usuarios.models import Tecnico, Usuario
 
 
 class UsuarioInline(admin.StackedInline):
     model = Usuario
     can_delete = False
     verbose_name_plural = "usuarios"
+    min_num = 1
+    max_num = 1
+
+class TecnicoInline(admin.StackedInline):
+    model = Tecnico
+    can_delete = False
+    verbose_name_plural = "tecnicos"
 
 
 class UserAdmin(BaseUserAdmin):
-    inlines = [UsuarioInline]
+    inlines = [UsuarioInline, TecnicoInline]
 
 
 # Re-register UserAdmin
