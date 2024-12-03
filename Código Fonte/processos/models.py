@@ -32,7 +32,7 @@ class Processo(models.Model):
     tecnico_responsavel = models.ForeignKey(Tecnico, on_delete=models.PROTECT, null=True, blank=True, related_name='processo_responsavel')
     solicitante = models.ForeignKey(Usuario, related_name='processo_solicitante', on_delete=models.CASCADE)
 
-    endereco = models.TextField(max_length=200)
+    endereco = models.CharField(max_length=200)
     razao_solicitacao = models.TextField(max_length=1000)
     indice_prioridade = models.FloatField()
     status = models.CharField(choices=Status.choices, default=Status.ABERTO, max_length=30)
