@@ -29,8 +29,8 @@ class Processo(models.Model):
             DOENTE: 'Doente',
         }
 
-    tecnico_responsavel = models.ForeignKey(Tecnico, on_delete=models.PROTECT, null=True, blank=True)
-    solicitante = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    tecnico_responsavel = models.ForeignKey(Tecnico, on_delete=models.PROTECT, null=True, blank=True, related_name='processo_responsavel')
+    solicitante = models.ForeignKey(Usuario, related_name='processo_solicitante', on_delete=models.CASCADE)
 
     endereco = models.TextField(max_length=200)
     razao_solicitacao = models.TextField(max_length=1000)
@@ -56,5 +56,4 @@ class Imagem(models.Model):
 class Documento(models.Model):
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
     imagem = models.ImageField(upload_to='pareceres/imagens/')
-
 

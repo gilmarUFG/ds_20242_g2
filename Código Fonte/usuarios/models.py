@@ -12,8 +12,7 @@ class Usuario(models.Model):
     endereco = models.TextField(max_length=200)
 
 
-class Tecnico(models.Model):
-    usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True)
+class Tecnico(Usuario):
     cargo = models.CharField(max_length=100)
     data_admissao = models.DateField()
     matricula = models.TextField(unique=True)
