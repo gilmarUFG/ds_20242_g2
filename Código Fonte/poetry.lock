@@ -119,6 +119,17 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-cpf"
+version = "0.1.0"
+description = "Campo CPF Field para usar no Model e ModelForm"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-cpf-0.1.0.tar.gz", hash = "sha256:3c4519ddd2784ba4d1ec3ce14d16e9e12d36d9178fee2fa8c4b4be2fb4ed0f50"},
+    {file = "django_cpf-0.1.0-py3-none-any.whl", hash = "sha256:3b973632d4a2d3f8d0d028ddb0e312e42c6de9827556904e922a2ac68af493ac"},
+]
+
+[[package]]
 name = "django-polymorphic"
 version = "3.1.0"
 description = "Seamless polymorphic inheritance for Django models"
@@ -599,4 +610,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "b32c85854fab65fc3a0eea0ec62a4b8083d2908085c35af3f5baaabc26e420b9"
+content-hash = "c5aed860a4bd5a5c3670c014b55aa8f72d466a73e4c7f0ee03a2fc8a75daf51c"
