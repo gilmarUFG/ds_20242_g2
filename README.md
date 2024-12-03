@@ -32,14 +32,14 @@ Responsável por analisar a listagem de casos e atuar, resolvendo-os e informand
 ----
 #### Cronograma
 ----
-**18/10/2024** - Sprint Planning  - OK
-**01/11/2024** - Entrega da primeira iteração - OK  
-**02/11/2024** - Sprint Review  - OK
-**04/11/2024** - Sprint Planning  - OK
-**29/11/2024** - Entrega da 2a iteração - OK 
-**30/11/224** - Sprint Review  - OK
-**02/12/2024** - Sprint Planning  - OK
-**13/12/2024** - Entrega final do MVP - EM PROGRESSO 
+**18/10/2024** - Sprint Planning  - OK <br>
+**01/11/2024** - Entrega da primeira iteração - OK <br>  
+**02/11/2024** - Sprint Review  - OK <br>
+**04/11/2024** - Sprint Planning  - OK <br>
+**29/11/2024** - Entrega da 2a iteração - OK <br> 
+**30/11/224** - Sprint Review  - OK <br>
+**02/12/2024** - Sprint Planning  - OK <br>
+**13/12/2024** - Entrega final do MVP - EM PROGRESSO <br> 
 
 #### Prévia do backlog do produto
 ----
