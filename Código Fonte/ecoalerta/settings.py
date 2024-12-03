@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "usuarios",
+    "processos",
 ]
+
+MEDIA_ROOT = BASE_DIR / "tmp/upload"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
