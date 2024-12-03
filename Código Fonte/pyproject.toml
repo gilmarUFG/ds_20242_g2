@@ -18,6 +18,7 @@ django-cpf = "^0.1.0"
 [tool.poetry.group.dev.dependencies]
 djlint = "^1.36.1"
 black = "^24.10.0"
+ipython = "^8.30.0"
 
 [build-system]
 requires = ["poetry-core"]
