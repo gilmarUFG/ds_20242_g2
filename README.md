@@ -30,6 +30,7 @@ Responsável por analisar a listagem de casos e atuar, resolvendo-os e informand
 - Atualizar o relatório com imagens da ação feita;<br>
 
 ----
+
 #### Cronograma
 ----
 **18/10/2024** - Sprint Planning  - OK <br>
@@ -42,7 +43,7 @@ Responsável por analisar a listagem de casos e atuar, resolvendo-os e informand
 **13/12/2024** - Entrega final do MVP - EM PROGRESSO <br> 
 
 #### Prévia do backlog do produto <br>
-
+----
 HU001 - Reportar árvore com risco  
 HU002 - Consultar relatórios de reportes anteriores  
 HU003 - Verificar os processos abertos
@@ -63,4 +64,3 @@ MVP:
 - Histórico de Reportes para usuário
 - Histórico de  Reportes para Servidor
 - Localidade dos Reportes para servidor
-
