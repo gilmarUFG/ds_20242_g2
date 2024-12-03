@@ -8,9 +8,11 @@ from usuarios.models import Tecnico, Usuario
 class UsuarioInline(admin.StackedInline):
     model = Usuario
     can_delete = False
-    verbose_name_plural = "usuarios"
+    verbose_name = "Perfil"
+    verbose_name_plural = "Perfil"
     min_num = 1
     max_num = 1
+
 
 class TecnicoInline(admin.StackedInline):
     model = Tecnico
