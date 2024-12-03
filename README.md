@@ -33,7 +33,7 @@ Responsável por analisar a listagem de casos e atuar, resolvendo-os e informand
 #### Cronograma
 ----
 **18/10/2024** - Sprint Planning  - OK <br>
-**01/11/2024** - Entrega da primeira iteração - OK <br>  
+**01/11/2024** - Entrega da primeira iteração - OK <br>
 **02/11/2024** - Sprint Review  - OK <br>
 **04/11/2024** - Sprint Planning  - OK <br>
 **29/11/2024** - Entrega da 2a iteração - OK <br> 
@@ -41,8 +41,8 @@ Responsável por analisar a listagem de casos e atuar, resolvendo-os e informand
 **02/12/2024** - Sprint Planning  - OK <br>
 **13/12/2024** - Entrega final do MVP - EM PROGRESSO <br> 
 
-#### Prévia do backlog do produto
-----
+#### Prévia do backlog do produto <br>
+
 HU001 - Reportar árvore com risco  
 HU002 - Consultar relatórios de reportes anteriores  
 HU003 - Verificar os processos abertos
