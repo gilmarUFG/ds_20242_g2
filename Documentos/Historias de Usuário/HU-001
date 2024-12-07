@@ -1,0 +1,42 @@
+## *ID:*  
+*HU-001*
+
+## *Título:*  
+*Consultar relatórios anteriores*
+
+## *Descrição:*  
+Como *Cidadão* , eu quero *cadastrar meus dados no sistema* para que *eu possa acessar e abrir processos de pode e estirpação e possa acompanhá-los* .
+
+## *Critérios de Aceitação:*
+
+### *Cenário 1: Visualizar relatórios anteriores*
+- *Dado* que o cidadão acessa a página de cadastro,
+- *Quando* preencher os campos obrigatórios Nome, CPF, E-mail, Telefone e Senha,
+- *Então* o sistema deve criar o cadastro e exibir uma mensagem de sucesso,
+- *E* o cidadão deve ser redirecionado para a página inicial autenticada no sistema.
+
+### *Cenário 2: Falha ao inserir informações incompletas*
+- *Dado* que o cidadão acessa a página de cadastro,
+- *Quando* tenta submeter o formulário sem preencher todos os campos obrigatórios,
+- *Então*  uma mensagem de erro deve ser exibida, indicando os campos que precisam ser corrigidos ou preenchidos.
+- *E* ao corrigir com as informações necessárias e reenviar, o sistema deve permitir o cadastro com sucesso.
+
+### *Cenário 3: Verificação de e-mail já cadastrado*
+- *Dado* que o cidadão tenta cadastrar um e-mail que já existe no sistema,
+- *Quando* tenta submeter o formulário,
+- *Então*  uma mensagem de erro deve ser exibida,  informando que o e-mail já está em uso,
+- *E* deve ser sugerido que o usuário tente recuperar a senha ou entre outro e-mail.
+
+## *Prioridade:*  
+alta
+
+## *Estimativa de Esforço:*  
+3 Story Points
+
+## *Dependências:*  
+
+
+## *Notas/Comentários Adicionais:* 
+- Banco de dados para armazenamento das informações dos usuários.
+- Sistema de validação de CPF e verificação de duplicidade de e-mail.
+- Regras de validação para campos obrigatórios e senha forte.
