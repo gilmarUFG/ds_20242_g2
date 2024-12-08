@@ -4,6 +4,7 @@ from usuarios.models import Tecnico, Usuario
 
 # Create your models here.
 
+#TODO falta o fator de risco - comentar com a galera
 
 class Processo(models.Model):
     class Status:
@@ -33,13 +34,13 @@ class Processo(models.Model):
     solicitante = models.ForeignKey(Usuario, related_name='processo_solicitante', on_delete=models.CASCADE)
 
     endereco = models.TextField(max_length=200)
-    razao_solicitacao = models.TextField(max_length=1000)
-    indice_prioridade = models.FloatField()
-    status = models.CharField(choices=Status.choices, default=Status.ABERTO, max_length=30)
-    situacao = models.CharField(choices=Situacao.choices, null=True, blank=True, max_length=30)
+    razao_solicitacao = models.TextField(max_length=1000) #descricao
+    indice_prioridade = models.FloatField() #indicie risco
+    status = models.CharField(choices=Status.choices, default=Status.ABERTO, max_length=30)#titulo
+    situacao = models.CharField(choices=Situacao.choices, null=True, blank=True, max_length=30) 
 
-    abertura = models.DateTimeField(auto_now_add=True)
-    ultima_modificacao = models.DateTimeField(auto_now=True)
+    abertura = models.DateTimeField(auto_now_add=True)#filtragem período
+    ultima_modificacao = models.DateTimeField(auto_now=True)#data
 
 class ParecerTecnico(models.Model):
     tecnico = models.ForeignKey(Tecnico, on_delete=models.PROTECT)
