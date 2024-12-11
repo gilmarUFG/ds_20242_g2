@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Local:
     "usuarios",
     "processos",
+    "bairros",
 ]
 
 MEDIA_ROOT = BASE_DIR / "tmp/upload"

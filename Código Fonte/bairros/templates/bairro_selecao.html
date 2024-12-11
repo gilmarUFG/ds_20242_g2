@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de CEP</title>
+</head>
+<body>
+    <h1>Consulta de CEP</h1>
+    <form method="post" action="{% url 'consulta_cep' %}">
+        {% csrf_token %}
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" required>
+        <button type="submit">Consultar</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if address %}
+        <h2>Resultado:</h2>
+        <p>Bairro: {{ address.bairro }}</p>
+        <p>CEP: {{ address.cep }}</p>
+        <p>Cidade: {{ address.cidade }}</p>
+        <p>Logradouro: {{ address.logradouro }}</p>
+        <p>UF: {{ address.uf }}</p>
+
+        <!-- Campos para entrada manual -->
+        <form method="post" action="{% url 'salvar_endereco' %}">
+            {% csrf_token %}
+            <input type="hidden" name="cep" value="{{ address.cep }}">
+            <input type="hidden" name="logradouro" value="{{ address.logradouro }}">
+            <input type="hidden" name="bairro" value="{{ address.bairro }}">
+
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" required>
+
+            <label for="complemento">Complemento:</label>
+            <input type="text" id="complemento" name="complemento">
+
+            <label for="observacao">Observação:</label>
+            <textarea id="observacao" name="observacao"></textarea>
+
+            <button type="submit">Salvar Endereço</button>
+        </form>
+    {% endif %}
+</body>
+</html>

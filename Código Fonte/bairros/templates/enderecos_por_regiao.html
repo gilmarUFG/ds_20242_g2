@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Endereços por Região</title>
+</head>
+<body>
+    <h1>Endereços Salvos por Região</h1>
+
+    {% for regiao, enderecos in enderecos_por_regiao.items %}
+        <h2>{{ regiao }}</h2>
+        <ul>
+            {% for endereco in enderecos %}
+                <li>
+                    {{ endereco.logradouro }}, {{ endereco.bairro }}, {{ endereco.numero }}
+                    {% if endereco.complemento %} - {{ endereco.complemento }}{% endif %}
+                    {% if endereco.observacao %} ({{ endereco.observacao }}){% endif %}
+                </li>
+            {% empty %}
+                <li>Nenhum endereço salvo nesta região.</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>
