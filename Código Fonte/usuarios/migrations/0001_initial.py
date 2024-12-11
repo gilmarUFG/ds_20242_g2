@@ -7,14 +7,14 @@ NOME_ADMIN = 'Admin'
 NOME_SERVIDOR = 'Servidor'
 NOME_VISITANTE = 'Visitante'
 
-def cria_user_groups(apps: Apps):
+def cria_user_groups(apps: Apps, *extra):
     Group = apps.get_model('auth', 'Group')
 
     Group.objects.create(name=NOME_ADMIN)
     Group.objects.create(name=NOME_SERVIDOR)
     Group.objects.create(name=NOME_VISITANTE)
 
-def remove_user_groups(apps: Apps):
+def remove_user_groups(apps: Apps, *extra):
     Group = apps.get_model('auth', 'Group')
 
     Group.objects.filter(name=NOME_ADMIN).delete()

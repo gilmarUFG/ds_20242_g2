@@ -59,4 +59,18 @@ HU0010 - Login de cidadão
 
 #### MVP e entregáveis
 ---- 
-A decidir
+MVP:
+- Cadastro do Usuário
+- Cadastro do Servidor
+- Abertura do Reporte (poda e estirpação)
+- Histórico de Reportes para usuário
+- Histórico de  Reportes para Servidor
+- Localidade dos Reportes para servidor
+
+Entregáveis:
+- Documentação inicial: descrição do problema, objetivos e requisitos.
+- Protótipo de interface: telas principais
+- Diagrama e Histórias de Usuários: Desenvolvidas pelos requisitos listados e estruturado no diagrama
+- Interface Gráfica (Frontend): Código desenvolvido com Templates do Django, integrando-se com o backend para exibir e manipular dados.
+- Banco de Dados: Scripts SQL para criação e população das tabelas, focado no SQLite
+- 
