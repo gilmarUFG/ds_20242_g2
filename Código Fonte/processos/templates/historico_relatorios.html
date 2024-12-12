@@ -68,21 +68,21 @@
                 crossorigin="anonymous"></script>
     </body>
     <script>
-  const filterButton = document.querySelector('.btn-primary');
+    const filterButton = document.querySelector('.btn-primary');
 
-  filterButton.addEventListener('click', (event) => {
-    event.preventDefault();
+    filterButton.addEventListener('click', (event) => {
+      event.preventDefault();
 
-    const periodoSelect = document.querySelector('[name="periodo"]');
-    const riscoSelect = document.querySelector('[name="risco"]');
+      const periodoSelect = document.querySelector('[name="periodo"]');
+      const riscoSelect = document.querySelector('[name="risco"]');
 
-    const periodo = periodoSelect.value;
-    const risco = riscoSelect.value;
+      const periodo = periodoSelect.value;
+      const risco = riscoSelect.value;
 
-    const baseUrl = "{% url 'historico-relatorios' %}";
-    const fullUrl = `${baseUrl}?periodo=${periodo}&risco=${risco}`;
+      const baseUrl = "{% url 'historico-relatorios' %}";
+      const fullUrl = `${baseUrl}?periodo=${periodo}&risco=${risco}`;
 
-    window.location.href = fullUrl;
-  });
+      window.location.href = fullUrl;
+    });
     </script>
 </html>

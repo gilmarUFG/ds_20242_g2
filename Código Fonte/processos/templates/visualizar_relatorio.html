@@ -91,64 +91,64 @@
         </div>
     </body>
     <script>
-  const selectElement = document.getElementById('status-select');
-  const updateButton = document.getElementById('atualizar-botao');
-  const laudoTextarea = document.getElementById('laudo');
-  const justificativaTextarea = document.getElementById('justificativa');
-  const recomendacaoTextarea = document.getElementById('recomendacao');
+    const selectElement = document.getElementById('status-select');
+    const updateButton = document.getElementById('atualizar-botao');
+    const laudoTextarea = document.getElementById('laudo');
+    const justificativaTextarea = document.getElementById('justificativa');
+    const recomendacaoTextarea = document.getElementById('recomendacao');
 
 
 
 
-  updateButton.addEventListener('click', () => {
-    const novoStatus = selectElement.value;
-    const laudo = laudoTextarea.value.trim();
-    const justificativa = justificativaTextarea.value.trim();
-    const recomendacao = recomendacaoTextarea.value.trim();
+    updateButton.addEventListener('click', () => {
+      const novoStatus = selectElement.value;
+      const laudo = laudoTextarea.value.trim();
+      const justificativa = justificativaTextarea.value.trim();
+      const recomendacao = recomendacaoTextarea.value.trim();
 
-    if (!laudo || !justificativa || !recomendacao) {
-      alert('Todos os campos devem ser preenchidos antes de atualizar o processo.');
-      return;
-    }
+      if (!laudo || !justificativa || !recomendacao) {
+        alert('Todos os campos devem ser preenchidos antes de atualizar o processo.');
+        return;
+      }
 
-    fetch(`/atualizar-processo/{{processo.id}}/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': getCookie('csrftoken')
-      },
-      body: JSON.stringify({
-        'status': novoStatus,
-        'laudo': laudo,
-        'justificativa': justificativa,
-        'recomendacao': recomendacao,
+      fetch(`/atualizar-processo/{{processo.id}}/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+          'status': novoStatus,
+          'laudo': laudo,
+          'justificativa': justificativa,
+          'recomendacao': recomendacao,
+        })
       })
-    })
-      .then(response => {
-        if (response.ok) {
-          alert('Status atualizado com sucesso!');
-        } else {
-          console.error('Erro ao atualizar o status');
-        }
-      })
-      .catch(error => {
-        console.error('Erro:', error);
-      });
-  });
+        .then(response => {
+          if (response.ok) {
+            alert('Status atualizado com sucesso!');
+          } else {
+            console.error('Erro ao atualizar o status');
+          }
+        })
+        .catch(error => {
+          console.error('Erro:', error);
+        });
+    });
 
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
         }
       }
+      return cookieValue;
     }
-    return cookieValue;
-  }
     </script>
 </html>
