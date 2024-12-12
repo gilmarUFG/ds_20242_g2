@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "processos",
 ]
 
-MEDIA_ROOT = BASE_DIR / ""
+MEDIA_ROOT = BASE_DIR / "tmp" / "upload"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
