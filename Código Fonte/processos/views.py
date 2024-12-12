@@ -1,9 +1,60 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Processo
+from .models import Processo,Imagem,Documento
+from datetime import date, timedelta
+import json
 
-# Create your views here.
+
 def historicoRelatorios(request):
+  periodo = request.GET.get('periodo')
+  risco = request.GET.get('risco')
   processos = Processo.objects.all()
-  print(processos)
+  if periodo:
+    if periodo == "Ultima Semana":
+        end_date = date.today()
+        start_date = end_date - timedelta(days=7)
+        processos = processos.filter(abertura__range=[start_date, end_date])
+    elif periodo == "Último mês":
+        end_date = date.today()
+        start_date = end_date.replace(day=1) - timedelta(days=30)
+        processos = processos.filter(abertura__range=[start_date, end_date])
+    elif periodo == "Ultimo Semestre":
+        end_date = date.today()
+        start_date = end_date - timedelta(days=185)
+        processos = processos.filter(abertura__range=[start_date, end_date])
+
+  if risco:
+    risk_min, risk_max = risco.split('-')
+    processos = processos.filter(indice_prioridade__gte=float(risk_min), indice_prioridade__lte=float(risk_max))
+
 
   return render(request, 'historico_relatorios.html',{'processos':processos})
+
+
+def visualizarRelatorio(request):
+  processoId = int(request.GET.get('processoId'))
+  processo = Processo.objects.get(id=processoId)
+  imagens = Imagem.objects.filter(processo=processo).all()
+  documentos = Documento.objects.filter(processo=processo).all()
+  return render(request, 'visualizar_relatorio.html',
+                {'processo':processo,
+                 'imagens':imagens,
+                 'documentos':documentos,
+                 }
+                )
+
+def updateProcesso(request,processoId):
+  novoAndamento = json.loads(request.body.decode('utf-8'))['status']
+  try:
+      processo = Processo.objects.get(id=processoId)
+      if novoAndamento in Processo.Status.choices.keys():
+          processo.status = novoAndamento
+          processo.save()
+          return HttpResponse(status=200)  
+      else:
+          return HttpResponse(status=400)  
+  except Processo.DoesNotExist:
+      return HttpResponse(status=404)
+   
+
+

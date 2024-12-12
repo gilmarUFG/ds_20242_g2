@@ -5,6 +5,7 @@ from usuarios.models import Tecnico, Usuario
 # Create your models here.
 
 #TODO falta o fator de risco - comentar com a galera
+#TODO implementar endereço corretamente
 
 class Processo(models.Model):
     class Status:
