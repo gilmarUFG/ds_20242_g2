@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Processo,Imagem,Documento
+from .models import Processo,Imagem,Documento, ParecerTecnico
 from datetime import date, timedelta
 import json
 
@@ -45,16 +45,22 @@ def visualizarRelatorio(request):
 
 def updateProcesso(request,processoId):
   novoAndamento = json.loads(request.body.decode('utf-8'))['status']
+  laudo = json.loads(request.body.decode('utf-8'))['laudo']
+  justificativa = json.loads(request.body.decode('utf-8'))['justificativa']
+  recomendacao = json.loads(request.body.decode('utf-8'))['recomendacao']
   try:
       processo = Processo.objects.get(id=processoId)
+      if laudo and justificativa and recomendacao:
+        novoParecerTecnico = ParecerTecnico(processo=processo,laudo=laudo,justificativa=justificativa,recomendacao=recomendacao)
+        novoParecerTecnico.save()
       if novoAndamento in Processo.Status.choices.keys():
-          processo.status = novoAndamento
-          processo.save()
-          return HttpResponse(status=200)  
+        processo.status = novoAndamento
+        processo.save()
+        return HttpResponse(status=200)  
       else:
-          return HttpResponse(status=400)  
+        return HttpResponse(status=400)  
   except Processo.DoesNotExist:
-      return HttpResponse(status=404)
+    return HttpResponse(status=404)
    
 
 

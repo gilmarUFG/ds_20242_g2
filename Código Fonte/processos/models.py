@@ -44,12 +44,41 @@ class Processo(models.Model):
     ultima_modificacao = models.DateTimeField(auto_now=True)#data
 
 class ParecerTecnico(models.Model):
-    tecnico = models.ForeignKey(Tecnico, on_delete=models.PROTECT)
+    tecnico = models.ForeignKey(Tecnico, on_delete=models.PROTECT,null=True)
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
-
     laudo = models.TextField(max_length=1000)
     justificativa = models.TextField(max_length=1000)
     recomendacao = models.TextField(max_length=1000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Imagem(models.Model):
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE)

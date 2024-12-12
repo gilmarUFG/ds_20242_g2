@@ -19,7 +19,7 @@
         <div class="row">
           {% for imagem in imagens %}
           <div class="col-md-4">
-            <img src="{{ imagem.imagem.path }}" alt="Imagem do processo" class="img-fluid">
+            <img src="{{ imagem.imagem.url }}" alt="Imagem do processo" class="img-fluid">
           </div>
           {% endfor %}
         </div>
@@ -35,20 +35,40 @@
         <div class="row">
           {% for documento in documentos %}
           <div class="col-md-4">
-            <img src="{{ documento.imagem.path }}" alt="Documento" class="img-fluid">
+            <img src="{{ documento.imagem.url }}" alt="Documento" class="img-fluid">
           </div>
           {% endfor %}
         </div>
 
-        <p class="card-text">Atualize o andamento do processo</p>
-        <select id="status-select" class="form-select w-auto" aria-label="Default select example" name="status">
-          <option {% if "ABERTO" in processo.status %}selected{% endif %} value="ABERTO">Aberto</option>
-          <option {% if "EM_ANALISE" in processo.status %}selected{% endif %} value="EM_ANALISE">Em Análise</option>
-          <option {% if "CANCELADO" in processo.status %}selected{% endif %} value="CANCELADO">Cancelado</option>
-          <option {% if "ENCERRADO" in processo.status %}selected{% endif %} value="ENCERRADO">Encerrado</option>
-          <option {% if "ENCAMINHADO" in processo.status %}selected{% endif %} value="ENCAMINHADO">Encaminhado
-          </option>
-        </select>
+        <h5 class="card-text mt-5 mb-2">Atualize o andamento do processo: </h5>
+        <!-- atualizar o andamento gera um parecer tecnico-->
+
+        <form>
+          <div class="form-group">
+            <select id="status-select" class="form-select w-auto" aria-label="Default select example" name="status">
+              <option {% if "ABERTO" in processo.status %}selected{% endif %} value="ABERTO">Aberto</option>
+              <option {% if "EM_ANALISE" in processo.status %}selected{% endif %} value="EM_ANALISE">Em Análise</option>
+              <option {% if "CANCELADO" in processo.status %}selected{% endif %} value="CANCELADO">Cancelado</option>
+              <option {% if "ENCERRADO" in processo.status %}selected{% endif %} value="ENCERRADO">Encerrado</option>
+              <option {% if "ENCAMINHADO" in processo.status %}selected{% endif %} value="ENCAMINHADO">Encaminhado
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="laudo">Laudo: </label>
+            <textarea class="form-control" id="laudo" rows="3" style="resize: none; height: 150px;"></textarea>
+          </div>
+          <div class="form-group mt-3">
+            <label for="justificativa">Justificativa: </label>
+            <textarea class="form-control" id="justificativa" rows="3" style="resize: none; height: 150px;"></textarea>
+          </div>
+          <div class="form-group mt-3">
+            <label for="recomendacao">Recomendação: </label>
+            <textarea class="form-control" id="recomendacao" rows="3" style="resize: none; height: 150px;"></textarea>
+          </div>
+        </form>
+
         <a type="button" class="btn btn-success mt-2" id="atualizar-botao">Atualizar Processo</a>
       </div>
     </div>
@@ -58,10 +78,23 @@
 <script>
   const selectElement = document.getElementById('status-select');
   const updateButton = document.getElementById('atualizar-botao');
+  const laudoTextarea = document.getElementById('laudo');
+  const justificativaTextarea = document.getElementById('justificativa');
+  const recomendacaoTextarea = document.getElementById('recomendacao');
+
+
+
 
   updateButton.addEventListener('click', () => {
     const novoStatus = selectElement.value;
-    console.log('novo status:', novoStatus)
+    const laudo = laudoTextarea.value.trim();
+    const justificativa = justificativaTextarea.value.trim();
+    const recomendacao = recomendacaoTextarea.value.trim();
+
+    if (!laudo || !justificativa || !recomendacao) {
+      alert('Todos os campos devem ser preenchidos antes de atualizar o processo.');
+      return;
+    }
 
     fetch(`/atualizar-processo/{{processo.id}}/`, {
       method: 'POST',
@@ -70,7 +103,10 @@
         'X-CSRFToken': getCookie('csrftoken')
       },
       body: JSON.stringify({
-        'status': novoStatus
+        'status': novoStatus,
+        'laudo': laudo,
+        'justificativa': justificativa,
+        'recomendacao': recomendacao,
       })
     })
       .then(response => {
