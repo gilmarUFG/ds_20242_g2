@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from processos.models import ParecerTecnico, Processo, Imagem, Documento
-from usuarios.models import Tecnico,Usuario
+from usuarios.models import Tecnico, Usuario
 
 # Register your models here.
 admin.site.register(Processo)
