@@ -18,4 +18,4 @@ class Usuario(PolymorphicModel):
 class Tecnico(Usuario):
     cargo = models.CharField(max_length=100)
     data_admissao = models.DateField()
-    matricula = models.TextField(unique=True)
+    matricula = models.CharField(max_length=100)

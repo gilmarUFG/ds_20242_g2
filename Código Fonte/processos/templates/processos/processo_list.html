@@ -1,0 +1,27 @@
+{% extends "base-bootstrap.html" %}
+{% block title %}Meus Processos{% endblock %}
+{% block nav-title %}Meus Processos{% endblock %}
+{% block main %}
+    <div class="mt-3 mb-3 d-flex flex-column align-items-center">
+        <a href="{% url 'novo-processo' %}" class="btn btn-primary mb-3">Novo processo</a>
+        {% if object_list %}
+            <ul class="list-group"
+                style="width: 500px;
+                       max-width: 100%;
+                       margin: 0 10px">
+                {% for processo in object_list %}
+                    <li class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5>{{ processo.endereco }}</h5>
+                            <small>{{ processo.abertura | date }}</small>
+                        </div>
+                        <p>{{ processo.razao_solicitacao }}</p>
+                        <span class="badge rouded-pill text-bg-secondary">{{ processo.status }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum processo cadastrado.</p>
+        {% endif %}
+    </div>
+{% endblock %}

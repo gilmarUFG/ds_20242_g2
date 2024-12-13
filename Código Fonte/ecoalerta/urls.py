@@ -17,9 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from django.shortcuts import redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("usuarios.urls")), # Deve adicionar apenas login e outros
     path('bairros/', include('bairros.urls')),
+    path("processos/", include("processos.urls")),
+    path("accounts/", include("usuarios.urls")),
+    path("", lambda req: redirect(to="processos/")),
 ]
