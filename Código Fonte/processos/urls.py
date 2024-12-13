@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
-from .views import historicoRelatorios, visualizarRelatorio, updateProcesso
+from .views import NovoProcessoView, historicoRelatorios, novo_processo, visualizarRelatorio, updateProcesso
 
 urlpatterns = [
     path("relatorios/", historicoRelatorios, name="historico-relatorios"),
@@ -10,4 +10,5 @@ urlpatterns = [
         updateProcesso,
         name="atualizar-processo",
     ),
+    path("novo/", novo_processo, name="novo-processo"),
 ]

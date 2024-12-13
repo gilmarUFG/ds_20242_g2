@@ -1,5 +1,9 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpRequest, HttpResponse
+from django.shortcuts import redirect, render
+from django.views.generic.edit import CreateView, FormView
+from django.contrib.auth.decorators import login_required
+
+from processos.forms import ProcessoForm
 from .models import Processo, Imagem, Documento, ParecerTecnico
 from datetime import date, timedelta
 import json
@@ -72,3 +76,28 @@ def updateProcesso(request, processoId):
             return HttpResponse(status=400)
     except Processo.DoesNotExist:
         return HttpResponse(status=404)
+
+
+@login_required
+def novo_processo(request: HttpRequest) -> HttpResponse:
+    form = ProcessoForm()
+
+    if request.method == "POST":
+        form = ProcessoForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.instance.solicitante = request.user.usuario
+            form.save()
+            # TODO: Redirect to the correct URL
+            return redirect("historico-relatorios")
+
+    return render(
+        request,
+        "novo_processo.html",
+        {"form": form},
+    )
+
+
+class NovoProcessoView(CreateView):
+    model = Processo
+    form_class = ProcessoForm

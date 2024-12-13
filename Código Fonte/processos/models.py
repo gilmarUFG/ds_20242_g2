@@ -1,6 +1,10 @@
+from typing import TYPE_CHECKING
 from django.db import models
 
 from usuarios.models import Tecnico, Usuario
+
+if TYPE_CHECKING:
+    from django.db.models.fields.related_descriptors import RelatedManager
 
 # Create your models here.
 
@@ -53,6 +57,13 @@ class Processo(models.Model):
     ultima_modificacao = models.DateTimeField(auto_now=True)  # data
 
 
+    imagem_set: "RelatedManager[Imagem]"
+
+    def save(self, *args, **kargs):
+        self.indice_prioridade = 1
+        return super().save(*args, **kargs)
+
+
 class ParecerTecnico(models.Model):
     tecnico = models.ForeignKey(Tecnico, on_delete=models.PROTECT, null=True)
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
@@ -68,4 +79,4 @@ class Imagem(models.Model):
 
 class Documento(models.Model):
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
-    imagem = models.ImageField(upload_to="pareceres/imagens/")
+    documento = models.ImageField(upload_to="pareceres/documentos/")
