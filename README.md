@@ -63,4 +63,4 @@ MVP:
 - Abertura do Reporte (poda e estirpação) - OK
 - Histórico de Reportes para usuário
 - Histórico de  Reportes para Servidor - OK
-- Localidade dos Reportes para servidor
+- Localidade dos Reportes para servidor - OK
