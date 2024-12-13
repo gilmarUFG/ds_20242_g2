@@ -3,10 +3,10 @@ from django.urls import include, path
 from .views import historicoRelatorios, visualizarRelatorio, updateProcesso
 
 urlpatterns = [
-    path("historico-relatorios/", historicoRelatorios, name="historico-relatorios"),
-    path("visualizar-relatorio/", visualizarRelatorio, name="visualizar-relatorio"),
+    path("relatorios/", historicoRelatorios, name="historico-relatorios"),
+    path("relatorios/visualizar/", visualizarRelatorio, name="visualizar-relatorio"),
     path(
-        "atualizar-processo/<int:processoId>/",
+        "<int:processoId>/atualizar/",
         updateProcesso,
         name="atualizar-processo",
     ),

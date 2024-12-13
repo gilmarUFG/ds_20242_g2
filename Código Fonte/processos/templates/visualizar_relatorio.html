@@ -97,9 +97,6 @@
     const justificativaTextarea = document.getElementById('justificativa');
     const recomendacaoTextarea = document.getElementById('recomendacao');
 
-
-
-
     updateButton.addEventListener('click', () => {
       const novoStatus = selectElement.value;
       const laudo = laudoTextarea.value.trim();
@@ -111,7 +108,7 @@
         return;
       }
 
-      fetch(`/atualizar-processo/{{processo.id}}/`, {
+      fetch(`<% url 'atualizar-processo' processo.id %>`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
