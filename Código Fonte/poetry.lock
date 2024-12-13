@@ -99,6 +99,24 @@ files = [
 ]
 
 [[package]]
+name = "crispy-bootstrap5"
+version = "2024.10"
+description = "Bootstrap5 template pack for django-crispy-forms"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "crispy_bootstrap5-2024.10-py3-none-any.whl", hash = "sha256:59e91dac5e45a8c954af3fbcaa6804cd5aef4402f027af2f99a352b096c4016f"},
+    {file = "crispy_bootstrap5-2024.10.tar.gz", hash = "sha256:55b442fe675dd95ad280123c7fe464f454186e90b8e5642e751f436c87627c44"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+django-crispy-forms = ">=2.3"
+
+[package.extras]
+test = ["pytest", "pytest-django"]
+
+[[package]]
 name = "cssbeautifier"
 version = "1.15.1"
 description = "CSS unobfuscator and beautifier."
@@ -154,6 +172,20 @@ files = [
     {file = "django-cpf-0.1.0.tar.gz", hash = "sha256:3c4519ddd2784ba4d1ec3ce14d16e9e12d36d9178fee2fa8c4b4be2fb4ed0f50"},
     {file = "django_cpf-0.1.0-py3-none-any.whl", hash = "sha256:3b973632d4a2d3f8d0d028ddb0e312e42c6de9827556904e922a2ac68af493ac"},
 ]
+
+[[package]]
+name = "django-crispy-forms"
+version = "2.3"
+description = "Best way to have Django DRY forms"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_crispy_forms-2.3-py3-none-any.whl", hash = "sha256:efc4c31e5202bbec6af70d383a35e12fc80ea769d464fb0e7fe21768bb138a20"},
+    {file = "django_crispy_forms-2.3.tar.gz", hash = "sha256:2db17ae08527201be1273f0df789e5f92819e23dd28fec69cffba7f3762e1a38"},
+]
+
+[package.dependencies]
+django = ">=4.2"
 
 [[package]]
 name = "django-polymorphic"
@@ -959,4 +991,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "1ccfd67a2849e94a8ba7bab5f8d1193fa4893f90f8e09abcad4a79462782b1f5"
+content-hash = "9ff0db468ef1d5b1072454e13c0b6411fad06b1104dd3a6fc4e5bdd390b58c70"

@@ -1,6 +1,12 @@
-from django.contrib import admin
-from django.urls import include, path
-from .views import historicoRelatorios, visualizarRelatorio, updateProcesso
+from django.shortcuts import redirect
+from django.urls import path
+from .views import (
+    MeusProcessosView,
+    historicoRelatorios,
+    novo_processo,
+    visualizarRelatorio,
+    updateProcesso,
+)
 
 urlpatterns = [
     path("relatorios/", historicoRelatorios, name="historico-relatorios"),
@@ -10,4 +16,7 @@ urlpatterns = [
         updateProcesso,
         name="atualizar-processo",
     ),
+    path("novo/", novo_processo, name="novo-processo"),
+    path("meus/", MeusProcessosView.as_view(), name="meus-processos"),
+    path("", lambda req: redirect(to="meus-processos")),
 ]

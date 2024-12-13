@@ -1,6 +1,10 @@
+from typing import TYPE_CHECKING
 from django.db import models
 
 from usuarios.models import Tecnico, Usuario
+
+if TYPE_CHECKING:
+    from django.db.models.fields.related_descriptors import RelatedManager
 
 # Create your models here.
 
@@ -43,18 +47,21 @@ class Processo(models.Model):
         Usuario, related_name="processo_solicitante", on_delete=models.CASCADE
     )
 
-    endereco = models.TextField(max_length=200)
-    razao_solicitacao = models.TextField(max_length=1000)  # descricao
-    indice_prioridade = models.FloatField()  # indicie risco
-    status = models.CharField(
-        choices=Status.choices, default=Status.ABERTO, max_length=30
-    )  # titulo
-    situacao = models.CharField(
-        choices=Situacao.choices, null=True, blank=True, max_length=30
-    )
+    endereco = models.CharField(max_length=200)
+    razao_solicitacao = models.TextField(max_length=1000)
+    indice_prioridade = models.FloatField()
+    status = models.CharField(choices=Status.choices, default=Status.ABERTO, max_length=30)
+    situacao = models.CharField(choices=Situacao.choices, null=True, blank=True, max_length=30)
 
     abertura = models.DateTimeField(auto_now_add=True)  # filtragem período
     ultima_modificacao = models.DateTimeField(auto_now=True)  # data
+
+
+    imagem_set: "RelatedManager[Imagem]"
+
+    def save(self, *args, **kargs):
+        self.indice_prioridade = 1
+        return super().save(*args, **kargs)
 
 
 class ParecerTecnico(models.Model):
@@ -72,4 +79,4 @@ class Imagem(models.Model):
 
 class Documento(models.Model):
     processo = models.ForeignKey(Processo, on_delete=models.CASCADE)
-    imagem = models.ImageField(upload_to="pareceres/imagens/")
+    documento = models.ImageField(upload_to="pareceres/documentos/")
