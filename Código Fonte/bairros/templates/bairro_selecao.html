@@ -2,7 +2,91 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de CEP</title>
+    <style>
+        /* Configurações gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf3f9;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do cabeçalho */
+        h1 {
+            text-align: center;
+            color: #5c5c5c;
+            margin-top: 20px;
+        }
+
+        /* Formulário centralizado */
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #6b6b6b;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #6c63ff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #5853d6;
+        }
+
+        /* Mensagem de erro */
+        p[style="color: red;"] {
+            color: #ff4d4f;
+            text-align: center;
+        }
+
+        /* Resultado formatado */
+        h2 {
+            text-align: center;
+            color: #5c5c5c;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Entrada manual */
+        textarea {
+            resize: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Consulta de CEP</h1>
@@ -19,11 +103,11 @@
 
     {% if address %}
         <h2>Resultado:</h2>
-        <p>Bairro: {{ address.bairro }}</p>
-        <p>CEP: {{ address.cep }}</p>
-        <p>Cidade: {{ address.cidade }}</p>
-        <p>Logradouro: {{ address.logradouro }}</p>
-        <p>UF: {{ address.uf }}</p>
+        <p><strong>Bairro:</strong> {{ address.bairro }}</p>
+        <p><strong>CEP:</strong> {{ address.cep }}</p>
+        <p><strong>Cidade:</strong> {{ address.cidade }}</p>
+        <p><strong>Logradouro:</strong> {{ address.logradouro }}</p>
+        <p><strong>UF:</strong> {{ address.uf }}</p>
 
         <!-- Campos para entrada manual -->
         <form method="post" action="{% url 'salvar_endereco' %}">
@@ -39,7 +123,7 @@
             <input type="text" id="complemento" name="complemento">
 
             <label for="observacao">Observação:</label>
-            <textarea id="observacao" name="observacao"></textarea>
+            <textarea id="observacao" name="observacao" rows="3"></textarea>
 
             <button type="submit">Salvar Endereço</button>
         </form>

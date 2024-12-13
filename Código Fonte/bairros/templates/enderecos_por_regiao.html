@@ -2,10 +2,54 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Endereços por Região</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocorrências por Região</title>
+    <style>
+        /* Configurações gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf3f9;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo do cabeçalho */
+        h1 {
+            text-align: center;
+            color: #5c5c5c;
+            margin-top: 20px;
+        }
+
+        /* Estilo das regiões */
+        h2 {
+            color: #6b6b6b;
+            margin-left: 20px;
+        }
+
+        /* Estilo da lista de endereços */
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        li {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo de placeholder quando não há dados */
+        li:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
-    <h1>Endereços Salvos por Região</h1>
+    <h1>Ocorrências por Região</h1>
 
     {% for regiao, enderecos in enderecos_por_regiao.items %}
         <h2>{{ regiao }}</h2>
@@ -21,5 +65,21 @@
             {% endfor %}
         </ul>
     {% endfor %}
+    <form action="{% url 'consulta_cep' %}" method="get" style="text-align: center; margin-top: 20px;">
+        <button 
+            type="submit" 
+            style="
+                background-color: #f7f2fa; 
+                color: #5f4b8b; 
+                border: 1px solid #5f4b8b; 
+                border-radius: 5px; 
+                padding: 10px 20px; 
+                font-size: 16px; 
+                cursor: pointer;
+                transition: background-color 0.3s ease, color 0.3s ease;">
+            Voltar para Consulta de CEP
+        </button>
+    </form>
+    
 </body>
 </html>

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Endereco  # Importe a model Endereco
 import requests
-
+import time
 # Função para consultar o CEP
 def consulta_cep(cep):
     response = requests.get(f"http://www.viacep.com.br/ws/{cep}/json/")
@@ -43,15 +43,14 @@ def salvar_endereco(request):
             observacao=observacao
         )
 
-        return HttpResponse("Endereço salvo com sucesso!")  # Redirecionar ou renderizar uma página de sucesso
-    
-    from django.shortcuts import render
-from .models import Endereco
-
+        return redirect('enderecos_por_regiao')  
+         # Redirecionar ou renderizar uma página de sucesso
+        
+        
 # Dicionário de bairros por região
 bairros_goiania = {
     "Norte": [
-        "Alice Barbosa", "Antônio Barbosa", "Antônio Carlos Pires", "Asa Branca", "Atalaia", "Caraíbas",
+        "Residencial Alice Barbosa", "Antônio Barbosa", "Antônio Carlos Pires", "Asa Branca", "Atalaia", "Caraíbas",
         "Felicidade", "Gentil Meireles", "Goiânia 2", "Granja Cruzeiro do Sul", "Guarema", "Hugo de Moraes",
         "Humaitá", "Itanhangá", "Vila Itatiaia", "Itamaracá", "Setor Jaó", "Jardim Balneário Meia Ponte",
         "Jardim Bom Jesus", "Jardim Diamantina", "Jardim Gramado", "Jardim Guanabara", "Jardim Guanabara II",
@@ -135,14 +134,14 @@ bairros_goiania = {
         "Parque Santa Cruz", "Parque Santa Maria", "Paulo Estrela", "Portal do Sol", "Portal do Sol II", "Portal Petrópolis",
         "Privê dos Girassóis", "Setor Recanto das Minas Gerais", "Recanto dos Buritis", "Residencial Havaí", "Residencial Olinda",
         "Residencial Ouro Preto", "Residencial Português", "Rio Jordão", "Santa Bárbara", "Santo Hilário", "São Francisco de Assis",
-        "São Leopoldo", "São Silvestre", "Senador Paranhos", "Serra Park", "Sonho Dourado", "Sonho Verde", "Tupinambá dos Reis",
+        "São Leopoldo", "São Silvestre", "Senador Paranhos", "Serra Park", "Residencial Sonho Dourado", "Sonho Verde", "Tupinambá dos Reis",
         "Vale das Brisas", "Vale do Araguaia", "Vila Alto da Glória", "Vila Bandeirantes", "Vila Concórdia", "Vila Legionárias",
         "Vila Maria Luíza", "Vila Martins", "Vila Matilde", "Vila Morais", "Vila Pedroso", "Vila Romana", "Ville de France"
     ],
     "Sudoeste": [
         "Alphaville Residencial", "Alto Oriente", "Amin Camargo", "Ana Clara", "Andréia", "Parque Anhanguera",
         "Aquários", "Atibaia", "Baliza", "Bonanza", "Bosque Sumaré", "Brasil Central", "Cachoeira Dourada",
-        "Campos Dourados", "Celina Park", "Center Ville", "Conjunto das Esmeraldas", "Condomínio das Esmeraldas",
+        "Campos Dourados", "Celina Park", "Residencial Center Ville", "Conjunto das Esmeraldas", "Condomínio das Esmeraldas",
         "Cristina", "Dona Gê", "Residencial Eldorado", "Eli Forte", "Faicalville", "Forteville", "Setor Garavelo",
         "Grajaú", "Residencial Granville", "Jardim Alvaphille", "Jardim Atlântico", "Jardim Ana Lúcia", "Jardim Caravelas",
         "Jardim Eli Forte", "Jardim Europa", "Jardim Florença", "Jardim Gardênia", "Jardim Ipanema", "Jardim Itaipú",
