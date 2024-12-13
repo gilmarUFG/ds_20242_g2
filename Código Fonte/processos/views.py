@@ -1,6 +1,7 @@
 from django.http import HttpRequest, HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
-from django.views.generic.edit import CreateView, FormView
+from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 
 from processos.forms import ProcessoForm
@@ -98,6 +99,5 @@ def novo_processo(request: HttpRequest) -> HttpResponse:
     )
 
 
-class NovoProcessoView(CreateView):
+class MeusProcessosView(LoginRequiredMixin, ListView):
     model = Processo
-    form_class = ProcessoForm
