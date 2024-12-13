@@ -108,7 +108,7 @@
         return;
       }
 
-      fetch(`<% url 'atualizar-processo' processo.id %>`, {
+      fetch(`{% url 'atualizar-processo' processo.id %}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
