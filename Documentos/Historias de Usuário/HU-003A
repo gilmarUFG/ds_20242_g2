@@ -1,0 +1,41 @@
+## **História de Usuário**
+
+### **ID:**  
+HU-003
+
+### **Título:**  
+Login com dados do Usuário
+
+### **Descrição:**  
+Como **Usuário**, eu quero **poder realizar login utilizando meu email e senha** para **ter acesso às funcionalidades do sistema**.
+
+### **Critérios de Aceitação:**
+
+#### Cenário 1: Login com sucesso
+- **Dado** que o Usuário está na tela de login para Usuários, 
+- **Quando** o Usuário insere corretamente seu email de Usuário,
+- **E** insere corretamente sua senha,
+- **Então** o Usuário deve ser autenticado com sucesso e direcionado para a página inicial.
+
+#### Cenário 2: Falha no login por email inválido
+- **Dado** que o Usuário está na tela de login para Usuários,
+- **Quando** insere um email errado,
+- **Então** uma mensagem de erro deve ser exibida informando que o login não foi realizado com sucesso,
+- **E** o servidor deve poder tentar inserir matrícula e senha novamente.
+
+#### Cenário 3: Falha no login por senha incorreta
+- **Dado** que o Usuário está na tela de login para Usuários,
+- **Quando** insere a senha incorreta,
+- **Então** uma mensagem de erro deve ser exibida informando que o login não foi realizado com sucesso,
+- **E** o Usuário deve poder tentar inserir email e senha novamente.
+
+### **Prioridade:**  
+Alta
+
+### **Estimativa de Esforço:**  
+3 Story Points
+
+### **Dependências:**  
+- Banco de dados alimentado com os emails e senha doa Usuários.
+
+### **Notas/Comentários Adicionais:**
