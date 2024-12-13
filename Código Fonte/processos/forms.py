@@ -30,7 +30,6 @@ class ProcessoForm(forms.ModelForm):
 
     instance: Processo
 
-
     def save(self, commit: bool = True) -> Processo:
         processo: Processo = super().save()
 
