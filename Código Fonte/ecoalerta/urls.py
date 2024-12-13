@@ -20,5 +20,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("usuarios.urls")), # Deve adicionar apenas login e outros
+    path("processos/", include("processos.urls")),
+    path("", include("usuarios.urls")),  # Deve adicionar apenas login e outros
 ]
