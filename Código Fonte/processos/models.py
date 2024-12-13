@@ -60,7 +60,6 @@ class Processo(models.Model):
     imagem_set: "RelatedManager[Imagem]"
 
     def save(self, *args, **kargs):
-        self.indice_prioridade = 1
         return super().save(*args, **kargs)
 
 
