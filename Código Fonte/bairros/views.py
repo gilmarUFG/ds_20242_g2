@@ -60,7 +60,7 @@ bairros_goiania = {
         "Orlando de Morais", "Panorama Parque", "Parque Balneário", "Parque das Flores", "Parque das Nações",
         "Parque dos Cisnes", "Perim", "Pindorama", "Portal da Mata", "Progresso", "Residencial Balneário",
         "Residencial das Acácias", "Residencial dos Ipês", "Residencial Guanabara", "Residencial Itália",
-        "Santa Genoveva", "São Geraldo", "Vila Jardim São Judas Tadeu", "Sevene", "Shangri-lá",
+        "Santa Genoveva",'Aeroporto Internacional Santa Genoveva', "São Geraldo", "Vila Jardim São Judas Tadeu", "Sevene", "Shangri-lá",
         "Setor Urias Magalhães", "Vale da Serra", "Residencial Vale dos Sonhos", "Residencial Vale dos Sonhos I",
         "Vila Clemente", "Vila Cristina", "Vila dos Oficiais", "Vila Industrial Pedro Abraão", "Vila Militar",
         "Vila Nossa Senhora Aparecida", "Vila Roriz", "Vila Santa Cruz", "Village Atalaia"
@@ -78,7 +78,7 @@ bairros_goiania = {
         "Vila Mooca", "Setor Leste Vila Nova", "Vila Nova Canaã", "Vila Ofugi", "Vila Oswaldo Rosa", "Vila Paraíso",
         "Vila Perdiz", "Vila Santa Helena", "Vila Santa Isabel", "Vila Santa Rita", "Vila Santa Tereza",
         "Vila Santana", "Vila Santo Antônio", "Vila São Francisco", "Vila São José", "Vila São Luiz",
-        "Vila Vera Cruz", "Vila Viana", "Vila Viandelli", "Yara", "Bertim Belchior"
+        "Vila Vera Cruz", "Vila Viana", "Vila Viandelli", "Yara", "Bertim Belchior","Chácaras de Recreio São Joaquim"
     ],
     "Noroeste": [
         "Alto do Vale", "Anglo", "da Vitória", "Barravento", "Boa Vista", "Residencial Brisas da Mata",
@@ -87,7 +87,7 @@ bairros_goiania = {
         "Jardim Colorado", "Jardim Curitiba", "Jardim das Hortências", "Jardim das Rosas", "Jardim Fonte Nova",
         "Jardim Helou", "Jardim Lago Azul", "Jardim Liberdade", "Jardim Nova Esperanca", "Jardim Vista Bela",
         "Juscelino Kubitschek", "Malibu", "Mansões Paraíso", "Mansões Rosas de Ouro", "Marabá", "Setor Morada do Sol",
-        "Noroeste", "Setor Novo Planalto", "Parque Aeronáutico Antônio Sebba Filho", "Parque Maracanã", "Parque Santa Rita",
+        "Noroeste",'Setor Noroeste', "Setor Novo Planalto", "Parque Aeronáutico Antônio Sebba Filho", "Parque Maracanã", "Parque Santa Rita",
         "Privê Norte", "Residencial Recanto do Bosque", "Setor Parque Tremendão", "Paulo Pacheco", "Recreio Estrela D'Alva",
         "Recreio Panorama", "Residencial Fortaleza", "Residencial Maringá", "Residencial Mirante", "São Carlos",
         "São Domingos", "Setor Estrela Dalva", "São Joaquim", "Senador Albino Boaventura", "Solange Parque",
@@ -139,7 +139,7 @@ bairros_goiania = {
         "Vila Maria Luíza", "Vila Martins", "Vila Matilde", "Vila Morais", "Vila Pedroso", "Vila Romana", "Ville de France"
     ],
     "Sudoeste": [
-        "Alphaville Residencial", "Alto Oriente", "Amin Camargo", "Ana Clara", "Andréia", "Parque Anhanguera",
+        "Alphaville Residencial","Loteamento Alphaville Residencial", "Alto Oriente", "Amin Camargo", "Ana Clara", "Andréia", "Parque Anhanguera",
         "Aquários", "Atibaia", "Baliza", "Bonanza", "Bosque Sumaré", "Brasil Central", "Cachoeira Dourada",
         "Campos Dourados", "Celina Park", "Residencial Center Ville", "Conjunto das Esmeraldas", "Condomínio das Esmeraldas",
         "Cristina", "Dona Gê", "Residencial Eldorado", "Eli Forte", "Faicalville", "Forteville", "Setor Garavelo",
